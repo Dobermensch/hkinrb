@@ -6,11 +6,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
+import ReadExperiences from "../components/ReadExperiences";
 
 export default (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/read" exact component={ReadExperiences} />
     </Switch>
   </Router>
 );
