@@ -14,7 +14,7 @@ const navLinkStyle = {
 class Nav extends Component {
     render() {
         return (
-            <nav>
+            <nav style={{width: "80%"}}>
                 <h3>HKINRB</h3>
                 <ul className="nav-links">
                 <Link style={navLinkStyle} to="/">

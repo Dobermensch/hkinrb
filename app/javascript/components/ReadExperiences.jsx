@@ -12,7 +12,8 @@ class ReadExperiences extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {numOfStories: 1, show: false}
+        this.state = {numOfStories: 200, show: false}
+        this.addBounceEffect = this.addBounceEffect.bind(this);
     }
 
     componentDidMount() {
@@ -32,17 +33,23 @@ class ReadExperiences extends Component {
 
         const stories = []
         for (let i = 0; i < this.state.numOfStories; i++) {
-            stories.push(<Story key={i} handleStoryClick={this.showModal} />)
+            stories.push(<Story key={i} idProp={i} handleStoryClick={this.showModal} />)
         }
 
         return (
-          <div style={test} className="vw-100 primary-color d-flex">
-              <Nav />
-              <Modal show={this.state.show} handleModalClose={this.hideModal} />
-              <div className="vw-100 row">
-                {stories}
-              </div>
-          </div>   
+            <div>
+                <div style={{width: "100vw", display: "flex", justifyContent: "center"}}>
+                    <Nav />
+                </div>
+                <div style={test} className="vw-100 vh-100 primary-color d-flex">
+                    <div>
+                    <Modal show={this.state.show} handleModalClose={this.hideModal} />
+                    </div>
+                    <div className="vw-100 row" style={{border: "1px solid", padding: "5vh 10vw 5vh 10vw"}}>
+                        {stories}
+                    </div>
+                </div>   
+            </div>
         )
     }
 }
