@@ -19,8 +19,8 @@ class Modal extends React.Component {
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div className="modal-body">
-                        ...
+                    <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
+                        
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={this.props.handleModalClose}>Close</button>
