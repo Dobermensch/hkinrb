@@ -13,16 +13,16 @@ class ReadExperiences extends Component {
         super(props)
 
         this.state = {numOfStories: 200, show: false}
-        this.addBounceEffect = this.addBounceEffect.bind(this);
     }
 
     componentDidMount() {
         // send fetch to server to retrieve number of stories. 
     }
 
-    showModal = () => {
-        this.setState({ show: true })
-        console.log("clicked")
+    showModal = (r,g,b) => {
+        if (![r,g,b].every(x => x == 255)) {
+            this.setState({ show: true })    
+        }
     }
 
     hideModal = () => {

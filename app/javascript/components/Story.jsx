@@ -23,23 +23,22 @@ class Story extends Component {
         let x = Math.random()
         if (x < 0.1){
             this.setState({ 
-                r: Math.floor(Math.random() * 255),
-                g: Math.floor(Math.random() * 255),
-                b: Math.floor(Math.random() * 255)
+                r: Math.floor(Math.random() * 256),
+                g: Math.floor(Math.random() * 256),
+                b: Math.floor(Math.random() * 256)
             })
         }
     }
 
     render() {
         let { r, g, b } = this.state;
-        console.log([r,g,b].every(x => x != 255));
-        let bouncer = Math.random() < 0.051;
+        let bouncer = Math.random() < 0.051 && !([r,g,b].every(x => x == 255));
         return (
             <div>
                 {bouncer ? 
-                    (<Bounce id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={this.props.handleStoryClick} />) 
+                    (<Bounce id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b)} />) 
                 : 
-                    (<div id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={this.props.handleStoryClick} />)
+                    (<div id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b)} />)
                 }
             </div>
         )
