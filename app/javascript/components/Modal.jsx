@@ -1,17 +1,33 @@
 import React from "react";
+import { fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
 import "../../assets/stylesheets/application.css"
+
+const FadeInDiv = styled.div`animation: 2s ${keyframes`${fadeIn}`}`;
 
 class Modal extends React.Component {
     render () {
         const showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
   
         return (
-        <div className={showHideClassName}>
-            <section className="modal-main">
-                <p>TEST</p>
-                <button onClick={this.props.handleModalClose}>close</button>
-            </section>
-        </div>
+        <FadeInDiv className={showHideClassName} tab-index="-1" role="dialog">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" className="close" aria-label="Close" onClick={this.props.handleModalClose}>
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div className="modal-body">
+                        ...
+                    </div>
+                    <div className="modal-footer">
+                        <button type="button" className="btn btn-secondary" onClick={this.props.handleModalClose}>Close</button>
+                    </div>
+                </div>
+            </div>
+        </FadeInDiv>
         );
     }
 }

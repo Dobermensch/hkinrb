@@ -20,6 +20,7 @@ class ReadExperiences extends Component {
     }
 
     showModal = (r,g,b) => {
+        console.log("clicked!")
         if (![r,g,b].every(x => x == 255)) {
             this.setState({ show: true })    
         }
@@ -43,7 +44,7 @@ class ReadExperiences extends Component {
                 </div>
                 <div style={test} className="vw-100 vh-100 primary-color d-flex">
                     <div>
-                    <Modal show={this.state.show} handleModalClose={this.hideModal} />
+                        <Modal show={this.state.show} handleModalClose={this.hideModal} />
                     </div>
                     <div className="vw-100 row" style={{border: "1px solid", padding: "5vh 10vw 5vh 10vw"}}>
                         {stories}
