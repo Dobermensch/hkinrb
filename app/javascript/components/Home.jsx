@@ -16,13 +16,22 @@ export default () => (
           Experiences of the underrepresented.
         </p>
         <hr className="my-4" />
-        <Link
-          to="/read"
-          className="btn btn-lg custom-button"
-          role="button"
-        >
-          Read Experiences
-        </Link>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
+          <Link
+            to="/read"
+            className="btn btn-lg custom-button"
+            role="button"
+          >
+            Read Experiences
+          </Link>
+          <Link
+            to="/about"
+            className="btn btn-lg custom-button"
+            role="button"
+          >
+            About Website
+          </Link>
+        </div>
       </div>
     </div>
   </div>

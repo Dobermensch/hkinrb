@@ -7,12 +7,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
 import ReadExperiences from "../components/ReadExperiences";
+import About from "../components/About";
 
 export default (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/read" exact component={ReadExperiences} />
+      <Route path="/about" exact component={About} />
     </Switch>
   </Router>
 );

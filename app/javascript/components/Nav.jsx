@@ -20,12 +20,12 @@ class Nav extends Component {
                 <Link style={navLinkStyle} to="/">
                     <li>Home</li>
                 </Link>
-                {/* <Link style={navLinkStyle} to="/about">
+                <Link style={navLinkStyle} to="/read">
+                    <li>Read</li>
+                </Link>
+                 <Link style={navLinkStyle} to="/about">
                     <li>About</li>
                 </Link>
-                <Link style={navLinkStyle} to="/game">
-                    <li>Game</li>
-                </Link> */}
                 </ul>
             </nav>
         );

@@ -4,10 +4,6 @@ import Story from "./Story"
 import Modal from "./Modal"
 import "../../assets/stylesheets/application.css"
 
-const test = {
-    border: "2px dotted"
-}
-
 class ReadExperiences extends Component {
     constructor(props) {
         super(props)
@@ -42,11 +38,11 @@ class ReadExperiences extends Component {
                 <div style={{width: "100vw", display: "flex", justifyContent: "center"}}>
                     <Nav />
                 </div>
-                <div style={test} className="vw-100 vh-100 primary-color d-flex">
+                <div className="vw-100 vh-100 primary-color d-flex">
                     <div>
                         <Modal show={this.state.show} handleModalClose={this.hideModal} />
                     </div>
-                    <div className="vw-100 row" style={{border: "1px solid", padding: "5vh 10vw 5vh 10vw"}}>
+                    <div className="vw-100 row" style={{padding: "5vh 10vw 5vh 10vw"}}>
                         {stories}
                     </div>
                 </div>   
