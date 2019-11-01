@@ -30,8 +30,10 @@ class About extends Component {
                             </li>
                             <li style={p_style}>
                                 Each story is represented by a color changing ball to illustrate that these stories have color as a recurring theme.
-                                At a glace, it symbolizes a society of people of different colors, ironically portraying a "dark" issue with color.
-                                Click on a ball to reveal it's story.     
+                                At a glace, it symbolizes a society of people of different colors, ironically portraying a "dark" issue with color.     
+                            </li>
+                            <li style={p_style}>
+                                "A user interface is like a joke, if you have to explain it, it's not that good". Fuck it - click on a ball to reveal it's story.
                             </li>
                         </ul>
                         <p style={p_style}>
