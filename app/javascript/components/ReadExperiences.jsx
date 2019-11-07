@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Nav from "./Nav"
 import Story from "./Story"
 import Modal from "./Modal"
+import PostModal from "./PostModal"
 import "../../assets/stylesheets/application.css"
 
 class ReadExperiences extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {numOfStories: 200, show: false}
+        this.state = {numOfStories: 200, show: false, post: false}
     }
 
     componentDidMount() {
@@ -26,6 +27,14 @@ class ReadExperiences extends Component {
         this.setState({ show: false })
     }
 
+    showPost = () => {
+        this.setState({ post: true })
+    }
+
+    hidePost = () => {
+        this.setState({ post: false })
+    }
+
     render() {
 
         const stories = []
@@ -36,11 +45,14 @@ class ReadExperiences extends Component {
         return (
             <div>
                 <div style={{width: "100vw", display: "flex", justifyContent: "center"}}>
-                    <Nav />
+                    <Nav showPost={true} onPostClick={this.showPost} />
                 </div>
                 <div className="vw-100 vh-100 primary-color d-flex">
                     <div>
                         <Modal show={this.state.show} handleModalClose={this.hideModal} />
+                    </div>
+                    <div>
+                        <PostModal show={this.state.post} handleModalClose={this.hidePost} />
                     </div>
                     <div className="vw-100 row" style={{padding: "5vh 10vw 5vh 10vw"}}>
                         {stories}

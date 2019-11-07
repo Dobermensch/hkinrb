@@ -26,6 +26,7 @@ class Nav extends Component {
                  <Link style={navLinkStyle} to="/about">
                     <li>About</li>
                 </Link>
+                {this.props.showPost && <li style={navLinkStyle} style={{cursor: "pointer"}} onClick={this.props.onPostClick}>Post</li>}
                 </ul>
             </nav>
         );
