@@ -175,6 +175,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
+  rack (~> 2.0)
   rails (~> 6.0.0)
   sass-rails (~> 5)
   turbolinks (~> 5)

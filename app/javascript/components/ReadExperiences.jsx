@@ -9,11 +9,20 @@ class ReadExperiences extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {numOfStories: 200, show: false, post: false}
+        this.state = {Stories: [1], show: false, post: false}
     }
 
     componentDidMount() {
-        // send fetch to server to retrieve number of stories. 
+        // send fetch to server to retrieve number of stories.
+        fetch(`${REACT_APP_API_URL}/get_ids`, {method: "GET"})
+        .then(function(resp){
+            return resp.json()    
+        }).then(function(data){
+            this.setState({Stories: data})
+        }).catch(function(err){
+            console.log("Oh no an error occurred")
+            console.log(err)
+        }) 
     }
 
     showModal = (r,g,b) => {
@@ -38,8 +47,10 @@ class ReadExperiences extends Component {
     render() {
 
         const stories = []
-        for (let i = 0; i < this.state.numOfStories; i++) {
-            stories.push(<Story key={i} idProp={i} handleStoryClick={this.showModal} />)
+
+        for (let i = 0; i < this.state.Stories.length; i++) {
+            // TODO: shuffle array
+            stories.push(<Story key={i} idProp={this.state.Stories[i]} handleStoryClick={this.showModal} />)
         }
 
         return (
