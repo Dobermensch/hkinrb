@@ -20,7 +20,7 @@ class Modal extends React.Component {
                         </button>
                     </div>
                     <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
-                        
+                        <p>{this.props.story}</p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={this.props.handleModalClose}>Close</button>

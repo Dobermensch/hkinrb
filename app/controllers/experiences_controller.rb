@@ -16,6 +16,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1
   # GET /experiences/1.json
   def show
+    render json: @experience
   end
 
   # GET /experiences/new

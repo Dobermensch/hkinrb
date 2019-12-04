@@ -36,9 +36,9 @@ class Story extends Component {
         return (
             <div>
                 {bouncer ? 
-                    (<Bounce id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b)} />) 
+                    (<Bounce id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b,this.props.idProp)} />) 
                 : 
-                    (<div id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b)} />)
+                    (<div id={`story-${this.props.idProp}`} className="circle" style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }} onClick={() => this.props.handleStoryClick(r,g,b,this.props.idProp)} />)
                 }
             </div>
         )

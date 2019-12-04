@@ -29,20 +29,20 @@ class PostModal extends React.Component {
                     </div>
                     <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
                         <form>
-                            <div class="form-group">
-                                <label for="InputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
-                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div className="form-group">
+                                <label htmlFor="InputEmail1">Email address</label>
+                                <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
-                            <div class="form-group">
-                                <label for="InputPhone1">Mobile Number</label>
-                                <input type="tel" class="form-control" id="InputPhone1" aria-describedby="phoneHelp" placeholder="Enter mobile number" required />
-                                <small id="phoneHelp" class="form-text text-muted">We'll never share your number with anyone else.</small>
+                            <div className="form-group">
+                                <label htmlFor="InputPhone1">Mobile Number</label>
+                                <input type="tel" className="form-control" id="InputPhone1" aria-describedby="phoneHelp" placeholder="Enter mobile number" required />
+                                <small id="phoneHelp" className="form-text text-muted">We'll never share your number with anyone else.</small>
                             </div>
-                            <div class="form-group">
-                                <label for="StoryText">Your Experience</label>
-                                <textarea class="form-control" id="StoryText" rows="4" aria-describedby="StoryHelp" minLength="100" required></textarea>
-                                <small id="StoryHelp" class="form-text text-muted">This needs to be at least 100 characters long</small>
+                            <div className="form-group">
+                                <label htmlFor="StoryText">Your Experience</label>
+                                <textarea className="form-control" id="StoryText" rows="4" aria-describedby="StoryHelp" minLength="100" required></textarea>
+                                <small id="StoryHelp" className="form-text text-muted">This needs to be at least 100 characters long</small>
                             </div>
                         </form>
                     </div>
