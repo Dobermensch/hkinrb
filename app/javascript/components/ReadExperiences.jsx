@@ -13,17 +13,20 @@ class ReadExperiences extends Component {
             Stories: [], 
             show: false, 
             post: false,
-            story: "test"
+            story: "test",
+            storyTitle: "title"
         }
     }
 
     componentDidMount() {
         // send fetch to server to retrieve number of stories.
         const cthis = this
-        fetch(`${process.env.React_APP_API_URL}/get_ids`, {method: "GET"})
+        fetch(`http://localhost:3000/get_ids`, {method: "GET"})
         .then(function(resp){
+            console.log(resp)
             return resp.json()    
         }).then(function(data){
+            console.log(data)
             cthis.setState({Stories: data})
         }).catch(function(err){
             console.log("Oh no an error occurred")
@@ -33,7 +36,7 @@ class ReadExperiences extends Component {
 
     showModal = (r,g,b,id) => {
         console.log("clicked!")
-        if (![r,g,b].every(x => x == 255)) {
+        if (![r,g,b].every(x => x == 211)) {
 
             // this.getStory(id)
 
@@ -84,7 +87,7 @@ class ReadExperiences extends Component {
                 </div>
                 <div className="vw-100 vh-100 primary-color d-flex">
                     <div>
-                        <Modal story={this.state.story} show={this.state.show} handleModalClose={this.hideModal} />
+                        <Modal story={this.state.story} storyTitle={this.state.storyTitle} show={this.state.show} handleModalClose={this.hideModal} />
                     </div>
                     <div>
                         <PostModal show={this.state.post} handleModalClose={this.hidePost} />

@@ -12,6 +12,37 @@ class PostModal extends React.Component {
 
     submitStory = () => {
         // perform input validation and then send to server
+        if (document.getElementById("InputEmail1").value.length == 0 || 
+            document.getElementById("InputPhone1").value.length == 0 || 
+            document.getElementById("StoryText").value.length == 0) {
+                alert("Please fill out the required fields")
+                return
+            }
+
+        const bod = {
+            story: document.getElementById("StoryText").value,
+            title: document.getElementById("TitleText").value,
+            email: document.getElementById("InputEmail1").value, 
+            phone_number: document.getElementById("InputPhone1").value,
+            location: document.getElementById("LocationText").value, 
+            name_poster: document.getElementById("NameText").value
+        }   
+
+        fetch("http://localhost:3000/experiences", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify(bod) 
+        }).then(function(resp){
+            return resp.json()
+        }).then(function(data){
+            console.log(data)
+        }).catch(function(err){
+            console.log("Oh no, an error occured")
+            console.log(err)
+        })
     }
 
     render () {
@@ -43,6 +74,21 @@ class PostModal extends React.Component {
                                 <label htmlFor="StoryText">Your Experience</label>
                                 <textarea className="form-control" id="StoryText" rows="4" aria-describedby="StoryHelp" minLength="100" required></textarea>
                                 <small id="StoryHelp" className="form-text text-muted">This needs to be at least 100 characters long</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="TitleText">Title (Optional)</label>
+                                <input type="text" className="form-control" id="TitleText" aria-describedby="TitleHelp" placeholder="Enter Title" />
+                                <small id="TitleHelp" className="form-text text-muted">Entering a title helps people remember the story</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="LocationText">Location (Optional)</label>
+                                <input type="text" className="form-control" id="LocationText" aria-describedby="LocationHelp" placeholder="Enter Location" />
+                                <small id="LocationHelp" className="form-text text-muted">Where did this occur? Work? School?</small>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="NameText">Name (Optional)</label>
+                                <input type="text" className="form-control" id="NameText" aria-describedby="NameHelp" placeholder="Enter Name" />
+                                <small id="NameHelp" className="form-text text-muted">We'll never share it with anyone</small>
                             </div>
                         </form>
                     </div>

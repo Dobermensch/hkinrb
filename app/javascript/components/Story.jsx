@@ -8,7 +8,7 @@ class Story extends Component {
     constructor(props) {
         super(props)
         this.randomColorChange = this.randomColorChange.bind(this);
-        this.state = {r: 255, g: 255, b: 255}
+        this.state = {r: 211, g: 211, b: 211}
     }
 
     componentDidMount() {
@@ -32,7 +32,7 @@ class Story extends Component {
 
     render() {
         let { r, g, b } = this.state;
-        let bouncer = Math.random() < 0.051 && !([r,g,b].every(x => x == 255));
+        let bouncer = Math.random() < 0.051 && !([r,g,b].every(x => x == 211));
         return (
             <div>
                 {bouncer ? 

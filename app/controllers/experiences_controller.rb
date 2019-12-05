@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
 
@@ -32,10 +33,10 @@ class ExperiencesController < ApplicationController
   # POST /experiences.json
   def create
     @experience = Experience.new(experience_params)
-
+    
     respond_to do |format|
       if @experience.save
-        format.json { render :show, status: :created, location: @experience }
+        format.json { render json: @experience, status: :created }
       else
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
@@ -74,6 +75,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.fetch(:experience, {})
+      params.require(:experience).permit(:name_poster, :email, :story, :phone_number, :title, :location)
     end
 end

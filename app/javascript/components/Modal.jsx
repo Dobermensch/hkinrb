@@ -14,7 +14,7 @@ class Modal extends React.Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 className="modal-title" id="exampleModalLongTitle">{this.props.storyTitle}</h5>
                         <button type="button" className="close" aria-label="Close" onClick={this.props.handleModalClose}>
                         <span aria-hidden="true">&times;</span>
                         </button>
