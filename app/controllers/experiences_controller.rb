@@ -36,11 +36,29 @@ class ExperiencesController < ApplicationController
     
     respond_to do |format|
       if @experience.save
+
+        # Send a confirmation email for the story
+        EmailMailer.with(email: @experience.email, exp_token: @experience.exp_token).confirm_email.deliver_now
+
         format.json { render json: @experience, status: :created }
       else
         format.json { render json: @experience.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm_exp
+    @experience = Experience.find(exp_token: params[:id])
+
+    if @experience
+      @experience.update!(email_confirmed: true)
+
+      obj = {message: "Story confirmed! Please wait while we assess this story."}
+    else
+      obj = {message: "Cannot find that experience. Please contact us at xxx to resolve this issue."}
+    end
+
+    render json: obj
   end
 
   # PATCH/PUT /experiences/1
