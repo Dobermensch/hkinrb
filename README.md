@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Description**
+A simple web app using React & Rails for letting people share experiences in which they've encountered racism in HK. 
 
-Things you may want to cover:
+**TODO**
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ensure story is at least 100 characters long before letting users post.

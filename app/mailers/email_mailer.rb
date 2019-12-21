@@ -1,5 +1,4 @@
 class EmailMailer < ApplicationMailer
-    # TODO: create email for processing requests and add as sender
     default from: 'hkinrb@gmail.com'
 
     def confirm_email
