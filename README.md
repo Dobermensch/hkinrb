@@ -1,7 +1,8 @@
 # README
 
 **Description**
-A simple web app using React & Rails for letting people share experiences in which they've encountered racism in HK. 
+
+A simple web app using React & Rails for letting people share their experience of being a minority in HK. 
 
 **TODO**
 

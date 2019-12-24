@@ -14,10 +14,10 @@ class PostModal extends React.Component {
         // perform input validation and then send to server
         if (document.getElementById("InputEmail1").value.length == 0 || 
             document.getElementById("InputPhone1").value.length == 0 || 
-            document.getElementById("StoryText").value.length == 0) {
-                alert("Please fill out the required fields")
+            document.getElementById("StoryText").value.length < 100 ) {
+                alert("Please fill out the required fields. The story needs to be at least 100 characters long.")
                 return
-            }
+            }    
 
         const bod = {
             story: document.getElementById("StoryText").value,
@@ -28,7 +28,7 @@ class PostModal extends React.Component {
             name_poster: document.getElementById("NameText").value
         }   
 
-        fetch("http://localhost:3000/experiences", {
+        fetch(`${process.env.REACT_APP_API_URL}/experiences`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

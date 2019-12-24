@@ -13,15 +13,15 @@ class ReadExperiences extends Component {
             Stories: [], 
             show: false, 
             post: false,
-            story: "test",
-            storyTitle: "title"
+            story: "",
+            storyTitle: ""
         }
     }
 
     componentDidMount() {
         // send fetch to server to retrieve number of stories.
         const cthis = this
-        fetch(`http://localhost:3000/get_ids`, {method: "GET"})
+        fetch(`${process.env.React_APP_API_URL}/get_ids`, {method: "GET"})
         .then(function(resp){
             console.log(resp)
             return resp.json()    
@@ -58,12 +58,12 @@ class ReadExperiences extends Component {
 
     getStory = (id) => {
         const cthis = this
-        console.log(`localhost:3000/experiences/${id}`)
+
         fetch(`${process.env.React_APP_API_URL}/experiences/${id}`, {method: "GET"})
         .then(function(resp){
             return resp.json()    
         }).then(function(data){
-            cthis.setState({story: data.story})
+            cthis.setState({story: data.story, storyTitle: data.title})
         }).catch(function(err){
             console.log("Oh no an error occurred")
             console.log(err)

@@ -48,7 +48,7 @@ class ExperiencesController < ApplicationController
   end
 
   def confirm_exp
-    @experience = Experience.find(exp_token: params[:id])
+    @experience = Experience.find_by(exp_token: params[:id])
 
     if @experience
       @experience.update!(email_confirmed: true)
