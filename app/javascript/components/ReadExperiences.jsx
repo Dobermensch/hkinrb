@@ -21,7 +21,7 @@ class ReadExperiences extends Component {
     componentDidMount() {
         // send fetch to server to retrieve number of stories.
         const cthis = this
-        fetch(`${process.env.React_APP_API_URL}/get_ids`, {method: "GET"})
+        fetch(`/get_ids`, {method: "GET"})
         .then(function(resp){
             console.log(resp)
             return resp.json()    
@@ -59,7 +59,7 @@ class ReadExperiences extends Component {
     getStory = (id) => {
         const cthis = this
 
-        fetch(`${process.env.React_APP_API_URL}/experiences/${id}`, {method: "GET"})
+        fetch(`/experiences/${id}`, {method: "GET"})
         .then(function(resp){
             return resp.json()    
         }).then(function(data){

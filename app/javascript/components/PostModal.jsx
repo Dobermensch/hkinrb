@@ -28,7 +28,7 @@ class PostModal extends React.Component {
             name_poster: document.getElementById("NameText").value
         }   
 
-        fetch(`${process.env.REACT_APP_API_URL}/experiences`, {
+        fetch(`/experiences`, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
