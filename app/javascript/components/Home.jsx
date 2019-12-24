@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const imgstyle = {
     width: "100%",
@@ -9,8 +7,8 @@ const imgstyle = {
 }
 
 export default () => (
-    <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
-      <div className="jumbotron jumbotron-fluid" style={{border: "1px solid"}}>
+    <div style={{display: "flex", width: "100vw", height: "100vh", alignItems: "center", justifyContent: "center"}}>
+      <div className="jumbotron jumbotron-fluid bg-transparent">
           <img style={imgstyle} src={require("../../assets/images/hk_banner.jpg")} alt="Image of HK" />
             <div className="container secondary-color">
               <h1 className="display-4">Minority Experiences: HK</h1>
