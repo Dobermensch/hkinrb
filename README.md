@@ -6,4 +6,4 @@ A simple web app using React & Rails for letting people share their experience o
 
 **TODO**
 
-- Ensure story is at least 100 characters long before letting users post.
+- Add spinner after submitting story.

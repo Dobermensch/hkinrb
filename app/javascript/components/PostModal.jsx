@@ -11,6 +11,8 @@ class PostModal extends React.Component {
     }
 
     submitStory = () => {
+        const cthis = this;
+
         // perform input validation and then send to server
         if (document.getElementById("InputEmail1").value.length == 0 || 
             document.getElementById("InputPhone1").value.length == 0 || 
@@ -38,7 +40,11 @@ class PostModal extends React.Component {
         }).then(function(resp){
             return resp.json()
         }).then(function(data){
-            console.log(data)
+            // console.log(data)
+            
+            cthis.props.handleModalClose()
+
+            alert("Successfully posted story. Please check your email for confirming your story and email. Remember to check the junk mail.")
         }).catch(function(err){
             console.log("Oh no, an error occured")
             console.log(err)

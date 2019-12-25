@@ -23,10 +23,10 @@ class ReadExperiences extends Component {
         const cthis = this
         fetch(`/get_ids`, {method: "GET"})
         .then(function(resp){
-            console.log(resp)
+            // console.log(resp)
             return resp.json()    
         }).then(function(data){
-            console.log(data)
+            // console.log(data)
             cthis.setState({Stories: data})
         }).catch(function(err){
             console.log("Oh no an error occurred")
@@ -35,10 +35,10 @@ class ReadExperiences extends Component {
     }
 
     showModal = (r,g,b,id) => {
-        console.log("clicked!")
+        // console.log("clicked!")
         if (![r,g,b].every(x => x == 211)) {
 
-            // this.getStory(id)
+            this.getStory(id)
 
             this.setState({ show: true })    
         }
