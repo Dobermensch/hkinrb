@@ -15,7 +15,7 @@ class Nav extends Component {
     render() {
         return (
             <nav style={{width: "80%"}}>
-                <h3>HKINRB</h3>
+                <h3>ME: HK</h3>
                 <ul className="nav-links">
                 <Link style={navLinkStyle} to="/">
                     <li>Home</li>
