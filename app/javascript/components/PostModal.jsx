@@ -17,7 +17,7 @@ class PostModal extends React.Component {
         if (document.getElementById("InputEmail1").value.length == 0 || 
             document.getElementById("InputPhone1").value.length == 0 || 
             document.getElementById("StoryText").value.length < 100 ) {
-                alert("Please fill out the required fields. The story needs to be at least 100 characters long.")
+                alert("Please fill out the required fields.\nThe story needs to be at least 100 characters long.")
                 return
             }    
 
@@ -44,10 +44,11 @@ class PostModal extends React.Component {
             
             cthis.props.handleModalClose()
 
-            alert("Successfully posted story. Please check your email for confirming your story and email. Remember to check the junk mail.")
+            alert("Successfully posted story.\nPlease check your email for confirming your story and email.\nRemember to check the junk mail.")
         }).catch(function(err){
             console.log("Oh no, an error occured")
             console.log(err)
+            alert("It seems there was an error.\nPlease try again later.")
         })
     }
 
@@ -55,56 +56,56 @@ class PostModal extends React.Component {
         const showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
   
         return (
-        <FadeInDiv className={showHideClassName} tab-index="-1" role="dialog">
+            <FadeInDiv className={showHideClassName} tab-index="-1" role="dialog">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Share your experience</h5>
-                        <button type="button" className="close" aria-label="Close" onClick={this.props.handleModalClose}>
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
-                        <form>
-                            <div className="form-group">
-                                <label htmlFor="InputEmail1">Email address</label>
-                                <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
-                                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="InputPhone1">Mobile Number</label>
-                                <input type="tel" className="form-control" id="InputPhone1" aria-describedby="phoneHelp" placeholder="Enter mobile number" required />
-                                <small id="phoneHelp" className="form-text text-muted">We'll never share your number with anyone else.</small>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="StoryText">Your Experience</label>
-                                <textarea className="form-control" id="StoryText" rows="4" aria-describedby="StoryHelp" minLength="100" required></textarea>
-                                <small id="StoryHelp" className="form-text text-muted">This needs to be at least 100 characters long</small>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="TitleText">Title (Optional)</label>
-                                <input type="text" className="form-control" id="TitleText" aria-describedby="TitleHelp" placeholder="Enter Title" />
-                                <small id="TitleHelp" className="form-text text-muted">Entering a title helps people remember the story</small>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="LocationText">Location (Optional)</label>
-                                <input type="text" className="form-control" id="LocationText" aria-describedby="LocationHelp" placeholder="Enter Location" />
-                                <small id="LocationHelp" className="form-text text-muted">Where did this occur? Work? School?</small>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="NameText">Name (Optional)</label>
-                                <input type="text" className="form-control" id="NameText" aria-describedby="NameHelp" placeholder="Enter Name" />
-                                <small id="NameHelp" className="form-text text-muted">We'll never share it with anyone</small>
-                            </div>
-                        </form>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="submit" className="btn btn-primary" onClick={this.submitStory}>Submit</button>
-                        <button type="button" className="btn btn-secondary" onClick={this.props.handleModalClose}>Close</button>
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLongTitle">Share your experience</h5>
+                            <button type="button" className="close" aria-label="Close" onClick={this.props.handleModalClose}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
+                            <form>
+                                <div className="form-group">
+                                    <label htmlFor="InputEmail1">Email address</label>
+                                    <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="InputPhone1">Mobile Number</label>
+                                    <input type="tel" className="form-control" id="InputPhone1" aria-describedby="phoneHelp" placeholder="Enter mobile number" required />
+                                    <small id="phoneHelp" className="form-text text-muted">We'll never share your number with anyone else.</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="StoryText">Your Experience</label>
+                                    <textarea className="form-control" id="StoryText" rows="4" aria-describedby="StoryHelp" minLength="100" required></textarea>
+                                    <small id="StoryHelp" className="form-text text-muted">This needs to be at least 100 characters long</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="TitleText">Title (Optional)</label>
+                                    <input type="text" className="form-control" id="TitleText" aria-describedby="TitleHelp" placeholder="Enter Title" />
+                                    <small id="TitleHelp" className="form-text text-muted">Entering a title helps people remember the story</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="LocationText">Location (Optional)</label>
+                                    <input type="text" className="form-control" id="LocationText" aria-describedby="LocationHelp" placeholder="Enter Location" />
+                                    <small id="LocationHelp" className="form-text text-muted">Where did this occur? Work? School?</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="NameText">Name (Optional)</label>
+                                    <input type="text" className="form-control" id="NameText" aria-describedby="NameHelp" placeholder="Enter Name" />
+                                    <small id="NameHelp" className="form-text text-muted">We'll never share it with anyone</small>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="submit" className="btn btn-primary" onClick={this.submitStory}>Submit</button>
+                            <button type="button" className="btn btn-secondary" onClick={this.props.handleModalClose}>Close</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </FadeInDiv>
+            </FadeInDiv>
         );
     }
 }
