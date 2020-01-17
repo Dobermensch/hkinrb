@@ -40,6 +40,9 @@ class ExperiencesController < ApplicationController
 
         # Send a confirmation email for the story
         EmailMailer.with(email: @experience.email, exp_token: @experience.exp_token).confirm_email.deliver_now
+        
+        # Notify the moderator via email
+        EmailMailer.with(id: @experience.id).notify_overlord.deliver_now
 
         format.json { render json: @experience, status: :created }
       else
