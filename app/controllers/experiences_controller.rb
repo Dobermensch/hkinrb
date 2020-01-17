@@ -17,6 +17,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1
   # GET /experiences/1.json
   def show
+    @experience = Experience.find(params[:id]).pluck(:story, :title, :age, :ethnicity)
     render json: @experience
   end
 
@@ -93,6 +94,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:name_poster, :email, :story, :phone_number, :title, :location)
+      params.require(:experience).permit(:name_poster, :email, :story, :phone_number, :title, :location, :age, :ethnicity)
     end
 end

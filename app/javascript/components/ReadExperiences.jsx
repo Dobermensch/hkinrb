@@ -14,7 +14,9 @@ class ReadExperiences extends Component {
             show: false, 
             post: false,
             story: "",
-            storyTitle: ""
+            storyTitle: "",
+            storyAge: "",
+            storyEthnicity: ""
         }
     }
 
@@ -63,7 +65,12 @@ class ReadExperiences extends Component {
         .then(function(resp){
             return resp.json()    
         }).then(function(data){
-            cthis.setState({story: data.story, storyTitle: data.title})
+            cthis.setState({
+                story: data.story, 
+                storyTitle: data.title,
+                storyAge: data.age, 
+                storyEthnicity: data.ethnicity
+            })
         }).catch(function(err){
             console.log("Oh no an error occurred")
             console.log(err)
@@ -87,7 +94,13 @@ class ReadExperiences extends Component {
                 </div>
                 <div className="vw-100 vh-100 primary-color d-flex">
                     <div>
-                        <Modal story={this.state.story} storyTitle={this.state.storyTitle} show={this.state.show} handleModalClose={this.hideModal} />
+                        <Modal 
+                            story={this.state.story} 
+                            storyTitle={this.state.storyTitle} 
+                            show={this.state.show}
+                            age={this.state.age}
+                            ethnicity={this.state.ethnicity} 
+                            handleModalClose={this.hideModal} />
                     </div>
                     <div>
                         <PostModal show={this.state.post} handleModalClose={this.hidePost} />
