@@ -95,6 +95,11 @@ class PostModal extends React.Component {
                                     <small id="LocationHelp" className="form-text text-muted">Where did this occur? Work? School?</small>
                                 </div>
                                 <div className="form-group">
+                                    <label htmlFor="NameText">Name (Optional)</label>
+                                    <input type="text" className="form-control" id="NameText" aria-describedby="NameHelp" placeholder="Enter Name" />
+                                    <small id="NameHelp" className="form-text text-muted">We'll never share it with anyone</small>
+                                </div>
+                                <div className="form-group">
                                     <label htmlFor="AgeText">Your Age (Optional)</label>
                                     <input type="number" className="form-control" id="AgeText" aria-describedby="AgeHelp" placeholder="Enter Age" />
                                     <small id="AgeHelp" className="form-text text-muted">We will be sharing this</small>
