@@ -57,9 +57,9 @@ class ExperiencesController < ApplicationController
     if @experience
       @experience.update!(email_confirmed: true)
 
-      obj = {message: "Story confirmed! Please wait while we assess this story."}
+      obj = {message: "Story confirmed! Please wait while we assess this story. You may close this window."}
     else
-      obj = {message: "Cannot find that experience. Please contact us at xxx to resolve this issue."}
+      obj = {message: "Cannot find that experience. Please contact us at hkirnb@gmail.com to resolve this issue. You may close this window."}
     end
 
     render json: obj
