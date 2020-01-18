@@ -42,7 +42,7 @@ class ExperiencesController < ApplicationController
         EmailMailer.with(email: @experience.email, exp_token: @experience.exp_token).confirm_email.deliver_now
         
         # Notify the moderator via email
-        EmailMailer.with(id: @experience.id).notify_overlord.deliver_now
+        EmailMailer.with(id: @experience.id, story: @experience.story, exp_token: @experience.exp_token).notify_overlord.deliver_now
 
         format.json { render json: @experience, status: :created }
       else
@@ -60,6 +60,20 @@ class ExperiencesController < ApplicationController
       obj = {message: "Story confirmed! Please wait while we assess this story. You may close this window."}
     else
       obj = {message: "Cannot find that experience. Please contact us at hkirnb@gmail.com to resolve this issue. You may close this window."}
+    end
+
+    render json: obj
+  end
+
+  def mogambo_khush_hua 
+    @experience = Experience.find_by(exp_token: params[:id])
+
+    if @experience
+      @experience.update!(approved: true)
+
+      obj = {message: "Story approved! You may close this window."}
+    else
+      obj = {message: "Cannot find that experience #{params[:id]} . Check logs!"}
     end
 
     render json: obj

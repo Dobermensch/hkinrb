@@ -9,6 +9,8 @@ class EmailMailer < ApplicationMailer
 
     def notify_overlord
         @id = params[:id]
+        @story = params[:story]
+        @url = "#{ENV["REACT_APP_API_URL"]}/mogambo_khush_hua/#{params[:exp_token]}"
         mail(to: "#{ENV["OVERLORD_EMAIL"]}", subject: "ME:HK - 1 More Story #{@id}")
     end
 end
