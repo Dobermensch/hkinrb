@@ -98,8 +98,8 @@ class ReadExperiences extends Component {
                             story={this.state.story} 
                             storyTitle={this.state.storyTitle} 
                             show={this.state.show}
-                            age={this.state.age}
-                            ethnicity={this.state.ethnicity} 
+                            age={this.state.storyAge}
+                            ethnicity={this.state.storyEthnicity} 
                             handleModalClose={this.hideModal} />
                     </div>
                     <div>

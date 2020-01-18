@@ -26,6 +26,7 @@ class Modal extends React.Component {
                         {this.props.ethnicity && 
                             <p>Ethnicity of poster: {this.props.ethnicity}</p>
                         }
+                        <p><b>Story:</b></p>
                         <p>{this.props.story}</p>
                     </div>
                     <div className="modal-footer">
