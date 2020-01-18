@@ -17,7 +17,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences/1
   # GET /experiences/1.json
   def show
-    @experience = Experience.find(params[:id]).pluck(:story, :title, :age, :ethnicity)
+    @experience = Experience.select(:story, :title, :age, :ethnicity).find(params[:id])
     render json: @experience
   end
 
