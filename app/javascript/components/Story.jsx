@@ -8,19 +8,14 @@ class Story extends Component {
     constructor(props) {
         super(props)
         this.randomColorChange = this.randomColorChange.bind(this);
-        this.state = {r: 211, g: 211, b: 211}
-    }
-
-    componentDidMount() {
-        const cur_this = this;
-        if ([r,g,b].every(x => x == 211)) {
-            cur_this.setState({ 
-                r: Math.floor(Math.random() * 256),
-                g: Math.floor(Math.random() * 256),
+        this.state = {
+                r: Math.floor(Math.random() * 256), 
+                g: Math.floor(Math.random() * 256), 
                 b: Math.floor(Math.random() * 256)
-            })
+            }
         }
 
+    componentDidMount() {
         this.intervalVar = setInterval(this.randomColorChange, 2000)
     }
 
@@ -41,7 +36,7 @@ class Story extends Component {
 
     render() {
         let { r, g, b } = this.state;
-        let bouncer = Math.random() < 0.051 && !([r,g,b].every(x => x == 211));
+        let bouncer = Math.random() < 0.051;
         return (
             <div>
                 {bouncer ? 
