@@ -12,8 +12,9 @@ class Story extends Component {
     }
 
     componentDidMount() {
+        cur_this = this;
         if ([r,g,b].every(x => x == 211)) {
-            this.setState({ 
+            cur_this.setState({ 
                 r: Math.floor(Math.random() * 256),
                 g: Math.floor(Math.random() * 256),
                 b: Math.floor(Math.random() * 256)
