@@ -12,6 +12,14 @@ class Story extends Component {
     }
 
     componentDidMount() {
+        if ([r,g,b].every(x => x == 211)) {
+            this.setState({ 
+                r: Math.floor(Math.random() * 256),
+                g: Math.floor(Math.random() * 256),
+                b: Math.floor(Math.random() * 256)
+            })
+        }
+
         this.intervalVar = setInterval(this.randomColorChange, 2000)
     }
 
