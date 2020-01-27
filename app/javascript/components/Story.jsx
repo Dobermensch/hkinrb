@@ -12,7 +12,7 @@ class Story extends Component {
     }
 
     componentDidMount() {
-        cur_this = this;
+        const cur_this = this;
         if ([r,g,b].every(x => x == 211)) {
             cur_this.setState({ 
                 r: Math.floor(Math.random() * 256),
