@@ -26,6 +26,7 @@ class PostModal extends React.Component {
 
         if (email != email2) {
             alert("The emails you entered do not match!")
+            return
         }
 
         if (["@hotmail.com", "@gmail.com", "@yahoo.com"].every(x => email.indexOf(x) == -1)) {
