@@ -14,23 +14,35 @@ class PostModal extends React.Component {
         const cthis = this;
 
         // perform input validation and then send to server
-        if (document.getElementById("InputEmail1").value.length == 0 || 
-            document.getElementById("InputPhone1").value.length == 0 || 
-            document.getElementById("StoryText").value.length < 100 ) {
-                alert("Please fill out the required fields.\nThe story needs to be at least 100 characters long.")
-                return
-            }    
+        if (document.getElementById("InputEmail1").value.length == 0 ||
+            document.getElementById("InputPhone1").value.length == 0 ||
+            document.getElementById("StoryText").value.length < 100) {
+            alert("Please fill out the required fields.\nThe story needs to be at least 100 characters long.")
+            return
+        }
+
+        const email = document.getElementById("InputEmail1").value;
+        const email2 = document.getElementById("InputEmail2").value;
+
+        if (email != email2) {
+            alert("The emails you entered do not match!")
+        }
+
+        if (["@hotmail.com", "@gmail.com", "@yahoo.com"].every(x => email.indexOf(x) == -1)) {
+            alert("Please format your email correctly")
+            return
+        }
 
         const bod = {
             age: document.getElementById("AgeText").value,
             ethnicity: document.getElementById("EthnicityText").value,
             story: document.getElementById("StoryText").value,
             title: document.getElementById("TitleText").value,
-            email: document.getElementById("InputEmail1").value, 
+            email: document.getElementById("InputEmail1").value,
             phone_number: document.getElementById("InputPhone1").value,
-            location: document.getElementById("LocationText").value, 
+            location: document.getElementById("LocationText").value,
             name_poster: document.getElementById("NameText").value
-        }   
+        }
 
         fetch(`/experiences`, {
             headers: {
@@ -38,25 +50,25 @@ class PostModal extends React.Component {
                 'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify(bod) 
-        }).then(function(resp){
+            body: JSON.stringify(bod)
+        }).then(function (resp) {
             return resp.json()
-        }).then(function(data){
+        }).then(function (data) {
             // console.log(data)
-            
+
             cthis.props.handleModalClose()
 
             alert("Successfully posted story.\nPlease check your email for confirming your story and email.\nRemember to check the junk mail.")
-        }).catch(function(err){
+        }).catch(function (err) {
             console.log("Oh no, an error occured")
             console.log(err)
             alert("It seems there was an error.\nPlease try again later.")
         })
     }
 
-    render () {
+    render() {
         const showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
-  
+
         return (
             <FadeInDiv className={showHideClassName} tab-index="-1" role="dialog">
                 <div className="modal-dialog" role="document">
@@ -67,12 +79,17 @@ class PostModal extends React.Component {
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div className="modal-body" style={{height: "65vh", overflowWrap: "break-word", overflowY: "auto"}}>
+                        <div className="modal-body" style={{ height: "65vh", overflowWrap: "break-word", overflowY: "auto" }}>
                             <form>
                                 <div className="form-group">
                                     <label htmlFor="InputEmail1">Email address</label>
                                     <input type="email" className="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
                                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="InputEmail2">Re-enter Email address</label>
+                                    <input type="email" className="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Re-enter email" required />
+                                    <small id="emailHelp2" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="InputPhone1">Mobile Number</label>
